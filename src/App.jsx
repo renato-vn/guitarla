@@ -1,18 +1,18 @@
 import Header from './components/Header'
-import { useState } from 'react'
 import Guitar from './components/Guitar'
-import { db } from './data/db'
 import { useCart } from './hooks/useCart'
 
 const App = () => {
-    const [data] = useState(db)
     const {
+        data,
         cart,
         addToCart,
         removeFromCart,
         increaseQuantity,
         decreaseQuantity,
         clearCart,
+        isEmpty,
+        cartTotal,
     } = useCart()
 
     return (
@@ -23,6 +23,8 @@ const App = () => {
                 increaseQuantity={increaseQuantity}
                 decreaseQuantity={decreaseQuantity}
                 clearCart={clearCart}
+                isEmpty={isEmpty}
+                cartTotal={cartTotal}
             />
             <main className="container-xl mt-5">
                 <h2 className="text-center">Nuestra Colección</h2>
